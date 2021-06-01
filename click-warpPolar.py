@@ -33,7 +33,14 @@ def mouse_callback(event, x, y, flags, param):
         click_points.append([x, y])
 
 
-def calc_circle_info(x1, y1, x2, y2, x3, y3):
+def calc_circle_info(point01, point02, point03):
+    x1 = point01[0]
+    y1 = point01[1]
+    x2 = point02[0]
+    y2 = point02[1]
+    x3 = point03[0]
+    y3 = point03[1]
+
     d = 2 * ((y1 - y3) * (x1 - x2) - (y1 - y2) * (x1 - x3))
     x = ((y1 - y3) * (y1**2 - y2**2 + x1**2 - x2**2) - (y1 - y2) *
          (y1**2 - y3**2 + x1**2 - x3**2)) / d
@@ -51,14 +58,7 @@ def exec_warp_polar(
     warp_polar_width,
     warp_polar_height,
 ):
-    x1 = points[0][0]
-    y1 = points[0][1]
-    x2 = points[1][0]
-    y2 = points[1][1]
-    x3 = points[2][0]
-    y3 = points[2][1]
-
-    x, y, r = calc_circle_info(x1, y1, x2, y2, x3, y3)
+    x, y, r = calc_circle_info(points[0], points[1], points[2])
 
     lin_polar_image = cv.warpPolar(
         image, (warp_polar_height, warp_polar_width), (int(x), int(y)), int(r),
@@ -88,7 +88,7 @@ def main():
     initial_angle = args.initial_angle
 
     # GUI準備
-    window_name = 'Click warpPolar 01'
+    window_name = 'Click warpPolar'
     cv.namedWindow(window_name)
     cv.setMouseCallback(window_name, mouse_callback)
 
@@ -139,12 +139,12 @@ def main():
         # デバッグ情報描画
         for click_point in click_points:
             cv.circle(resize_frame, (click_point[0], click_point[1]),
-                      3, (0, 255, 0),
+                      5, (0, 255, 0),
                       thickness=-1)
         if len(click_points) == 3:
             cv.circle(resize_frame, (int(x), int(y)),
                       int(r), (0, 255, 0),
-                      thickness=1)
+                      thickness=2)
         cv.putText(resize_frame, "FPS:" + str(display_fps), (10, 30),
                    cv.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 1, cv.LINE_AA)
 
