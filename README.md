@@ -13,9 +13,10 @@ python click-warpPolar.py
 ```
 <br>
 実行時には、以下のオプションが指定可能です。
+
 * --device<br>
 カメラデバイス番号の指定<br>
-デフォルト：0。
+デフォルト：0
 * --file<br>
 動画ファイルの指定 ※指定時にはカメラデバイスより優先<br>
 デフォルト：None
@@ -32,7 +33,7 @@ python click-warpPolar.py
 極座標変換後の画像の縦幅<br>
 デフォルト：150
 * --initial_angle<br>
-極座標変換後の表示原点を何度ズラすか<br>
+極座標変換後の表示原点を何度ずらすか<br>
 デフォルト：-90
 
 # Author
