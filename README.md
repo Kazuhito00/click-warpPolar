@@ -36,6 +36,9 @@ python click-warpPolar.py
 極座標変換後の表示原点を何度ずらすか<br>
 デフォルト：-90
 
+# Reference
+時計の動画は[Pixabay](https://pixabay.com/ja/videos/%E6%99%82%E9%96%93-%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF-%E6%99%82%E8%A8%88-%E3%83%AB%E3%83%BC%E3%83%97-15604/)を利用しています。
+
 # Author
 高橋かずひと(https://twitter.com/KzhtTkhs)
  
