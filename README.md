@@ -11,6 +11,10 @@
 ```bash
 python click-warpPolar.py
 ```
+時計の動画でお試ししたいときは以下のように指定ください。
+```bash
+python click-warpPolar.py --file=image/clock.mp4
+```
 <br>
 実行時には、以下のオプションが指定可能です。
 
